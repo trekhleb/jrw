@@ -1,0 +1,118 @@
+html {
+  margin: 0;
+  padding: 0;
+  min-height: 100dvh;
+}
+
+.light {
+  --background-color: white;
+  --text-color: black;
+}
+
+.dark {
+  --background-color: black;
+  --text-color: white;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  /* transition: background-color .5s ease, color .5s ease; */
+  display: grid;
+  margin: 0;
+  padding: 0;
+  min-height: 100dvh;
+}
+
+.leaflet-control-attribution {
+  transition: background-color 0.5s ease, color 0.5s ease;
+  background-color: var(--background-color) !important;
+  color: var(--text-color) !important;
+}
+
+.leaflet-control-attribution a {
+  transition: color 0.5s ease;
+  color: var(--text-color) !important;
+}
+
+.initial-loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 100dvh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+    'Helvetica Neue', Arial, sans-serif;
+  background: black;
+  color: white;
+}
+
+.initial-loader-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+  animation: initial-loader-fade-in 0.5s ease-in;
+  opacity: 1;
+}
+
+.initial-loader-spinner,
+.initial-loader-spinner div {
+  box-sizing: border-box;
+}
+.initial-loader-spinner {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.initial-loader-spinner div {
+  position: absolute;
+  border: 4px solid currentColor;
+  opacity: 1;
+  border-radius: 50%;
+  animation: initial-loader-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.initial-loader-spinner div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+@keyframes initial-loader-ripple {
+  0% {
+    top: 36px;
+    left: 36px;
+    width: 8px;
+    height: 8px;
+    opacity: 0;
+  }
+  4.9% {
+    top: 36px;
+    left: 36px;
+    width: 8px;
+    height: 8px;
+    opacity: 0;
+  }
+  5% {
+    top: 36px;
+    left: 36px;
+    width: 8px;
+    height: 8px;
+    opacity: 1;
+  }
+  100% {
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    opacity: 0;
+  }
+}
+
+@keyframes initial-loader-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
